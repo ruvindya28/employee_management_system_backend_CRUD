@@ -37,6 +37,15 @@ app.get("/employees",(req,res)=>{
 
 })
 
+app.delete('/employees',(req,res)=>{
+    const reg=req.params.id
+    const employee=Employee.findByIdAndDelete(reg).then(()=>{
+        res.send("Deleted Successfully");
+    }).catch((err)=>{
+        res.send(err);
+    })
+
+})
 
 app.listen(5000,()=>{
     
